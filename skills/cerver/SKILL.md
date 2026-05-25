@@ -112,6 +112,33 @@ POST   /v2/apps/:slug/environments/:envSlug/repos        { repo_url, repo_ref?, 
 DELETE /v2/apps/:slug/environments/:envSlug/repos/:repoId
 ```
 
+### Vaults (Infisical connections)
+
+A "vault" is one Infisical project the account has UA creds for
+(encrypted at rest server-side). Bind a vault to an app or env via
+`cerver envs update --infisical ifc_...` (or in the dashboard).
+
+CLI (preferred):
+
+```
+cerver vaults                                            # list
+cerver vaults add --label N --client-id ID --client-secret SEC --project-id PID [--env prod] [--site-url URL] [--default]
+cerver vaults rename --id ifc_... --label NEW
+cerver vaults set-default --id ifc_...
+cerver vaults verify --id ifc_...
+cerver vaults delete --id ifc_...
+```
+
+HTTP equivalents:
+
+```
+GET    /v2/account/infisical
+POST   /v2/account/infisical                             { label, client_id, client_secret, project_id, environment?, site_url?, is_default? }
+PATCH  /v2/account/infisical/:id                         { label?, client_id?, client_secret?, project_id?, environment?, site_url?, is_default? }
+POST   /v2/account/infisical/:id/verify
+DELETE /v2/account/infisical/:id
+```
+
 ## Status enum
 
 Three values: `running` | `ready` | `ended`.
