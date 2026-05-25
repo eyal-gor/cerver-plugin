@@ -139,6 +139,31 @@ POST   /v2/account/infisical/:id/verify
 DELETE /v2/account/infisical/:id
 ```
 
+### Insights — "what are my users asking?"
+
+Cerver stores every session's transcript. Run an analysis agent
+across recent ones and get a structured report: top user asks,
+stuck patterns, suggested features. Use this when a teammate
+asks "what should we ship next" — instead of guessing, point at
+what the data already says.
+
+CLI:
+
+```
+cerver insights                          # all apps, recent sessions
+cerver insights --app SLUG               # scope to one app
+cerver insights --limit 50               # consider more sessions
+cerver insights --json                   # raw JSON for piping
+```
+
+HTTP:
+
+```
+POST /v2/insights                        { app_slug?, days?, limit? }
+  → { summary, top_asks[], stuck_patterns[], suggested_features[],
+      session_count, analyzed_sessions }
+```
+
 ## Status enum
 
 Three values: `running` | `ready` | `ended`.
