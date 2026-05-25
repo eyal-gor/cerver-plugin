@@ -1,0 +1,12 @@
+{
+  "name": "cerver",
+  "description": "Cerver — session-layer API for AI apps and agents. Adds the cerver skill so Claude can persist sessions across runs, route turns to sandboxed compute (Vercel/E2B/local relay), and fetch secrets from your Infisical vault without seeing the raw values.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Eyal Goren",
+    "url": "https://cerver.ai"
+  },
+  "homepage": "https://cerver.ai",
+  "repository": "https://github.com/eyal-gor/cerver-plugin",
+  "license": "MIT"
+}

@@ -1,0 +1,9 @@
+{
+  "plugins": [
+    {
+      "name": "cerver",
+      "url": "https://github.com/eyal-gor/cerver-plugin",
+      "description": "Session-layer API for AI apps and agents — persistent memory, sandboxed compute, and Infisical-backed secrets behind one Claude Code skill."
+    }
+  ]
+}
